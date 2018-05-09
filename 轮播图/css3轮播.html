@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		.container {
+			overflow: hidden;
+			margin: 200px auto;
+			height: 300px;
+			width: 600px;
+			position: relative;
+		}
+		
+		.banner {
+			width: 4200px;
+			height: 300px;
+		}
+		
+		.banner img {
+			width: 600px;
+			height: 300px;
+			float: left;
+		}
+		
+		.anma {
+			background-color: red;
+			/*兼容：*/
+			/*通用*/
+			animation: yang 20s infinite;
+			/* Firefox */
+			-moz-animation: yang 20s infinite;
+			/* Safari and Chrome */
+			-webkit-animation: yang 20s infinite;
+			/* Opera */
+			-o-animation: yang 20s infinite;
+			/* Safari 和 Chrome */
+			position: relative;
+		}
+		/*动画*/
+		
+		@keyframes yang {
+			0% {
+				right: 0px;
+			}
+			15% {
+				right: 0px;
+			}
+			20% {
+				right: 600px;
+			}
+			35% {
+				right: 600px;
+			}
+			40% {
+				right: 1200px;
+			}
+			55% {
+				right: 1200px;
+			}
+			60% {
+				right: 1800px;
+			}
+			75% {
+				right: 1800px
+			}
+			80% {
+				right: 2400px
+			}
+			95% {
+				right: 2400px
+			}
+			100% {
+				right: 0px
+			}
+		}
+		
+		
+		
+		.spot {
+			position: absolute;
+			bottom: 0px;
+			left: 262px;
+			margin: 0 auto;
+		}
+		
+		.spot span {
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			border-radius: 50px;
+			background-color: black;
+			opacity: 0.5;
+			
+		}
+		
+		.spot span:nth-child(1) {
+			/*兼容：*/
+			/*通用*/
+			animation: spot1 20s infinite;
+			/* Firefox */
+			-moz-animation: spot1 20s infinite;
+			/* Safari and Chrome */
+			-webkit-animation: spot1 20s infinite;
+			/* Opera */
+			-o-animation: spot1 20s infinite;
+		}
+		.spot span:nth-child(2) {
+			/*兼容：*/
+			/*通用*/
+			animation: spot2 20s infinite;
+			/* Firefox */
+			-moz-animation: spot2 20s infinite;
+			/* Safari and Chrome */
+			-webkit-animation: spot2 20s infinite;
+			/* Opera */
+			-o-animation: spot2 20s infinite;
+		}
+		.spot span:nth-child(3) {
+			/*兼容：*/
+			/*通用*/
+			animation: spot3 20s infinite;
+			/* Firefox */
+			-moz-animation: spot3 20s infinite;
+			/* Safari and Chrome */
+			-webkit-animation: spot3 20s infinite;
+			/* Opera */
+			-o-animation: spot3 20s infinite;
+		}
+		.spot span:nth-child(4) {
+			/*兼容：*/
+			/*通用*/
+			animation: spot4 20s infinite;
+			/* Firefox */
+			-moz-animation: spot4 20s infinite;
+			/* Safari and Chrome */
+			-webkit-animation: spot4 20s infinite;
+			/* Opera */
+			-o-animation: spot4 20s infinite;
+		}
+		.spot span:nth-child(5) {
+			/*兼容：*/
+			/*通用*/
+			animation: spot5 20s infinite;
+			/* Firefox */
+			-moz-animation: spot5 20s infinite;
+			/* Safari and Chrome */
+			-webkit-animation: spot5 20s infinite;
+			/* Opera */
+			-o-animation: spot5 20s infinite;
+		}
+		@keyframes spot1 {
+			0% {
+				background-color: white;
+			}
+			15% {
+				background-color: white;
+			}
+			20% {
+				background-color: black;
+			}	
+			95% {
+				background-color: black;
+			}
+			100% {
+				background-color: white;
+			}
+		}
+		@keyframes spot2 {
+			0% {
+				background-color: black;
+			}
+			15% {
+				background-color: black;
+			}
+			20% {
+				background-color: white;
+			}
+			35% {
+				background-color: white;
+			}	
+			40% {
+				background-color: black;
+			}	
+			100% {
+				background-color: black;
+			}
+		}
+		@keyframes spot3 {
+			0% {
+				background-color: black;
+			}
+			35% {
+				background-color: black;
+			}
+			40% {
+				background-color: white;
+			}
+			55% {
+				background-color: white;
+			}	
+			60% {
+				background-color: black;
+			}	
+			100% {
+				background-color: black;
+			}
+		}
+		@keyframes spot4 {
+			0% {
+				background-color: black;
+			}
+			55% {
+				background-color: black;
+			}
+			60% {
+				background-color: white;
+			}
+			75% {
+				background-color: white;
+			}	
+			80% {
+				background-color: black;
+			}	
+			100% {
+				background-color: black;
+			}
+		}
+		@keyframes spot5 {
+			0% {
+				background-color: black;
+			}
+			75% {
+				background-color: black;
+			}
+			80% {
+				background-color: white;
+			}
+			95% {
+				background-color: white;
+			}
+			100% {
+				background-color: black;
+			}
+		}
+		
+		
+		
+	
+		
+	</style>
+
+	<body>
+		<div class="container">
+			<div class="banner anma">
+				<img src="img/1.jpg" />
+				<img src="img/2.jpg" />
+				<img src="img/3.jpg" />
+				<img src="img/4.jpg" />
+				<img src="img/5.jpg" />
+			</div>
+			<div class="spot">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+	</script>
+
+</html>

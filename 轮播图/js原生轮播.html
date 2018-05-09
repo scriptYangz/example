@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.container {
+				overflow: hidden;
+				margin: 200px auto;
+				height: 300px;
+				width: 600px;
+				position: relative;
+			}
+			
+			.banner {
+				width: 3000px;
+				height: 300px;
+			}
+			
+			.banner img {
+				width: 600px;
+				height: 300px;
+				float: left;
+			}
+			
+			.anma {
+				background-color: red;
+				position: relative;
+			}
+			
+			.spot {
+				position: absolute;
+				bottom: 4px;
+				right: 270px;
+				margin: 0 auto;
+			}
+			
+			.spot span {
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				border-radius: 50px;
+				background-color: black;
+				opacity: 0.5;
+				cursor: pointer;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="container">
+			<div id="banner" class="banner anma">
+				<img src="img/1.jpg" />
+				<img src="img/2.jpg" />
+				<img src="img/3.jpg" />
+				<img src="img/4.jpg" />
+				<img src="img/5.jpg" />
+			</div>
+			<div id="spot" class="spot">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var ban = document.getElementById("banner");
+		var spot = document.getElementById("spot");
+		var pos = 0;
+		var arr = spot.children;
+        var index = 0;
+        //默认点亮第一个圆点
+        arr[index].style.backgroundColor = "white";
+		var time = setInterval(function() {
+			
+			
+			index++;
+			if(-pos == ban.offsetWidth - 600) {
+				pos = 600;
+			}
+			pos = pos - 600;
+			ban.style.left = pos + "px";
+            
+            //将所有圆点还原成默认色
+			for(var i=0;i<arr.length;i++){
+				arr[i].style.backgroundColor = "black";
+			}
+
+			//点亮对应圆点
+			arr[index].style.backgroundColor = "white";
+			if(index==arr.length-1){
+				index=-1;
+			}
+			
+
+		}, 5000);
+	</script>
+
+</html>
