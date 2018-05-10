@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<title></title>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<style type="text/css">
+			.leftbar {
+				width: 100%;
+			}
+			
+			.leftbar td:hover {
+				cursor: pointer;
+				background-color: burlywood;
+			}
+			
+			.rightbar {
+				margin-top: 50px;
+				width: 100%;
+				border: 2px solid salmon;
+			}
+			
+			.box {
+				margin-left: 10px;
+				display: inline-block;
+			}
+			
+			.img {
+				display: inline-block;
+				margin: 10px;
+				float: right;
+			}
+			
+			.img img {
+				width: 95px;
+				height: 110px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="leftbar">
+			<table id="tname" border="" cellspacing="" cellpadding="">
+				<tr>
+					<th style="width: 200px;text-align: center;">姓名</th>
+				</tr>
+
+			</table>
+		</div>
+		<div class="rightbar">
+			<div class="box">
+				<p><span>姓名：</span><span id="name"></span></p>
+				<p><span>性别：</span><span id="sex"></span></p>
+				<p><span>年龄：</span><span id="age"></span></p>
+			</div>
+			<div class="img">
+				<img/>
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		$(function() {
+			//加载名字列表
+			$.get("json/student.json", function(res) {
+				callback(res);
+			})
+
+			function callback(res) {
+
+				for(let i = 0; i < res.data.length; i++) {
+					//将姓名加载到列表中
+					$("#tname").append("<tr><td style='width: 200px;text-align: center;'>" + res.data[i].name + "</td></tr>");
+				}
+				//添加点击事件
+				$("#tname td").click(function(e) {
+					show(this.innerHTML,res.data);
+				})
+
+			}
+			
+			
+			function show(name,data){
+				//遍历数据并渲染
+				for(let i=0;i<data.length;i++){
+					if(data[i].name==name){
+						$("#name").text(data[i].name);
+						$("#sex").text(data[i].sex);
+						$("#age").text(data[i].age);
+						$(".img img").prop("src",data[i].img);
+					}
+				}
+			}
+
+		})
+	</script>
+
+</html>
