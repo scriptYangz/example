@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			.main {
+				width: 97%;
+				height: 650px;
+				margin: 50px auto;
+				background-color: black;
+				position: relative;
+			}
+			
+			.image {
+				width: 80px;
+			}
+		</style>
+	</head>
+
+	<body >
+		<div class="main">
+			<img class="image" id="img1" style="position:absolute; left:100px; bottom: 100px;" src="img/八神庵/normal.png" />
+		</div>
+	</body>
+	<script src="js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		//鼠标移动图片
+		/*function Divflying() {
+			var card1 = document.getElementById('img1');
+			if(!card1) {
+				return;
+			}
+			var intX = window.event.clientX;
+			var intY = window.event.clientY;
+			card1 .style.left = intX + "px";
+			card1 .style.top = intY + "px";
+		}
+		document.onmousemove = Divflying;*/
+
+		var key_pressed = {};
+		var righttop = false;
+		var lefttop = false;
+		var rightbottom = false;
+		var leftbottom = false;
+		var act;
+
+		//用来阻止keydown死循环
+		document.addEventListener("keyup", function(e) {
+
+			key_pressed[e.keyCode] = false;
+			righttop = false;
+			lefttop = false;
+			rightbottom = false;
+			leftbottom = false;
+			
+
+		});
+		document.addEventListener("keydown", function(e) {
+
+			key_pressed[e.keyCode] = true;
+
+		});
+
+		//组合键   
+		setInterval(function() {
+
+			for(var key in key_pressed) {
+
+				var card1 = document.getElementById('img1');
+
+				if(key_pressed[key]) {
+					//上左
+					if(key == 87) {
+						lefttop = true;
+					}
+					if(lefttop == true && key == 65) {
+						if(!card1) {
+							return;
+						}
+						var intX = $('#img1').position().left;
+						var intY = $('#img1').position().top;
+						card1.style.top = intY + (-5) + "px";
+						card1.style.left = intX + (-5) + "px";
+						act = "lefttop";
+						changeimg(card1,act);
+					}
+
+					//上右
+					if(key == 87) {
+						righttop = true;
+					}
+					if(righttop == true && key == 68) {
+						if(!card1) {
+							return;
+						}
+						var intX = $('#img1').position().left;
+						var intY = $('#img1').position().top;
+						card1.style.top = intY + (-5) + "px";
+						card1.style.left = intX + 5 + "px";
+					}
+					//下左
+					if(key == 83) {
+						leftbottom = true;
+					}
+					if(leftbottom == true && key == 65) {
+						if(!card1) {
+							return;
+						}
+						var intX = $('#img1').position().left;
+						var intY = $('#img1').position().top;
+						card1.style.top = intY + 5 + "px";
+						card1.style.left = intX + (-5) + "px";
+						act = "leftbottom";
+						changeimg(card1,act);
+					}
+
+					//下右
+					if(key == 83) {
+						rightbottom = true;
+					}
+					if(rightbottom == true && key == 68) {
+						if(!card1) {
+							return;
+						}
+						var intX = $('#img1').position().left;
+						var intY = $('#img1').position().top;
+						card1.style.top = intY + 5 + "px";
+						card1.style.left = intX + 5 + "px";
+					}
+
+					//上
+					if(key == 87) {
+
+						if(!card1) {
+							return;
+						}
+						var intY = $('#img1').position().top;
+						card1.style.top = intY + (-5) + "px";
+
+					}
+					//下
+					if(key == 83) {
+
+						if(!card1) {
+							return;
+						}
+						var intY = $('#img1').position().top;
+						card1.style.top = intY + 5 + "px";
+
+					}
+					//左
+					if(key == 65) {
+
+						if(!card1) {
+							return;
+						}
+						var intX = $('#img1').position().left;
+						card1.style.left = intX + (-5) + "px";
+
+					}
+					//右
+					if(key == 68) {
+
+						if(!card1) {
+							return;
+						}
+						var intX = $('#img1').position().left;
+						card1.style.left = intX + 5 + "px";
+						act = "right";
+						changeimg(card1,act);
+
+					}
+
+				}
+
+			}
+
+		}, 35);
+
+		function changeimg(obj,act){
+			
+			
+			if(act == "lefttop"){
+			obj.src = "img/八神庵/b1.png";
+			
+			}else if(act == "leftbottom"){
+			obj.src = "img/59662447-fe04-44d5-b590-dcc2665416e5.gif";
+			
+			}else if(act == "right"){
+				
+
+				walk(obj);
+			
+			}
+
+		}
+		
+		//前进的动作
+		function walk(obj){
+			
+		
+				var i = 1;
+		       	walktimes = setInterval(function(){
+		       		obj.src = "img/八神庵/walk"+i+".png";
+		       		console.log(i);
+		       		i++;
+		       		if(i>=8){
+		       			i=1;
+		       		}
+		       	},2000);
+		}
+	</script>
+
+</html>
